@@ -495,7 +495,7 @@ final class SpacePager {
         if mail, !floating, band.minY > top {
             // Clear of the lights by a door's gap, the fade (doorsFade)
             // over it: the doors went out through the green light.
-            let lights = browser.flank == .left ? Metrics.sideLights + SideBar.margin + 6 : 0
+            let lights = browser.flank == .left && !browser.titleLights ? Metrics.sideLights + SideBar.margin + 6 : 0
             let rect = CGRect(x: band.minX + lights, y: top, width: band.width - lights, height: band.minY - top)
             if let doors = column.pictureAll(rect, bare: own && shared) {
                 stage.doorsRow(rect, picture: doors, scale: column.window?.backingScaleFactor ?? 2,
